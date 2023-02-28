@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LinkSE Login</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+  </head>
+
+  <body>
+    <div id="app" v-cloak>
+      <img
+        class="secondary-logo"
+        src="assets/digital_factory.svg"
+        alt="digital_factory"
+      />
+
+      <div class="login-box">
+        <p class="welcome">WELCOME BACK TO</p>
+        <img class="primary-logo" src="assets/logo.svg" alt="linkSE" />
+
+        <!-- login form -->
+        <form
+          class="login-form"
+          v-if="isSubmitted === false"
+          @submit.prevent="logIn"
+        >
+          <label for="url">
+            Base URL
+            <input type="text" id="url" autofocus value="Doe" />
+          </label>
+          <label for="username">
+            Username
+            <input type="text" id="username" />
+          </label>
+          <label for="password">
+            Password
+            <input type="text" id="password" />
+          </label>
+          <div class="login-form_bottom">
+            <label class="container">
+              Remember me
+              <input type="checkbox" checked="checked" />
+              <span class="checkmark"></span>
+            </label>
+            <a href="#">Forgot Password?</a>
+          </div>
+          <button class="btn-submit">Login</button>
+        </form>
+
+        <!-- always fails -->
+        <div class="error" v-if="isSubmitted === true">
+          Invalid User Credentials !
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
