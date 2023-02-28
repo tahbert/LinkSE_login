@@ -2,7 +2,6 @@ Vue.createApp({
   data() {
     return {
       isSubmitted: false,
-      error: "Invalid User Credentials",
     };
   },
   methods: {
