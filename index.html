@@ -23,9 +23,10 @@
           v-if="isSubmitted === false"
           @submit.prevent="logIn"
         >
-          <label for="url">
+          <label class="url" for="url">
             Base URL
-            <input type="text" id="url" autofocus value="Doe" />
+            <input type="text" id="url" autofocus value="api-mono" />
+            <span class="url-fixed">.linkse.dev</span>
           </label>
           <label for="username">
             Username
