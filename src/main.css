@@ -21,6 +21,7 @@
 html,
 body {
   min-height: 100%;
+  min-width: 100%;
 }
 body {
   font-family: "PT Sans", sans-serif;
@@ -36,7 +37,8 @@ a {
 }
 /* ----------------------------------------------------------------------------- */
 #app {
-  padding: 60px 0 20px;
+  padding: 40px 0 10px;
+  max-height: 812px;
 }
 .secondary-logo {
   display: block;
@@ -45,7 +47,8 @@ a {
 .login-box {
   margin: 55px auto 0;
   padding: 24px;
-  width: 391px;
+  max-width: 391px;
+  height: 526px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,8 +65,10 @@ a {
   width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 .login-form_bottom {
+  position: relative;
   margin-top: 24px;
   display: flex;
   justify-content: space-between;
@@ -112,19 +117,25 @@ input[type="password"]:focus {
   font-size: 12px;
   color: white;
 }
-.error {
-  margin-top: 20px;
-  color: #a70000;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 20px 40px;
+.box-input {
+  position: relative;
 }
 .error-input {
-  display: inline-block;
-  color: #a70000;
-  padding: 8px;
-  margin-bottom: 8px;
-  background: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  bottom: -14px;
+  right: 0;
+  color: #c31d16;
+  text-align: end;
 }
+.error {
+  position: absolute;
+  top: -40px;
+  width: 100%;
+  color: #c31d16;
+  border-bottom: 1px solid #ef665b;
+  padding: 4px;
+}
+
 /* customize the checkbox */
 /* ----------------------------------------------------------------------------- */
 .container {
@@ -190,10 +201,11 @@ input[type="password"]:focus {
 }
 @media (max-width: 480px) {
   #app {
-    padding: 30px 0 20px;
+    padding: 20px 0 10px;
   }
   .login-box {
-    width: 343px;
+    margin: 30px auto 0;
+    max-width: 343px;
   }
   input[type="text"]:focus {
     outline: none;
