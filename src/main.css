@@ -18,10 +18,16 @@
   --darkGrey: #303030;
   --darkestGrey: #272727;
 }
+html,
 body {
-  height: 100%;
+  min-height: 100%;
+}
+body {
   font-family: "PT Sans", sans-serif;
   background: var(--darkestGrey);
+  background-image: url(bg_left.svg), url(bg_right.svg), url(bg_bottom.svg);
+  background-position: left center, right center, center bottom;
+  background-repeat: no-repeat, no-repeat, no-repeat;
 }
 a {
   color: var(--primaryColor);
@@ -29,15 +35,9 @@ a {
 }
 /* ----------------------------------------------------------------------------- */
 #app {
-  width: 100%;
-  height: 100vh;
-  background-image: url(assets/bg_left.svg), url(assets/bg_right.svg),
-    url(assets/bg_bottom.svg);
-  background-position: left center, right center, center bottom;
-  background-repeat: no-repeat, no-repeat, no-repeat;
+  padding: 60px 0 20px;
 }
 .secondary-logo {
-  padding-top: 60px;
   display: block;
   margin: auto;
 }
@@ -69,7 +69,8 @@ a {
 }
 
 /* ----------------------------------------------------------------------------- */
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
   margin: 10px 0;
   display: block;
   width: 100%;
@@ -80,7 +81,8 @@ input[type="text"] {
   background: transparent;
   border-radius: 6px;
 }
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="password"]:focus {
   border: 1px solid var(--primaryColor);
   outline: 2px solid rgba(92, 207, 114, 0.3);
 }
@@ -112,10 +114,15 @@ input[type="text"]:focus {
 .error {
   margin-top: 20px;
   color: #a70000;
-  /* border: 1px solid #ffbaba; */
-  background: #f5f5f5;
-  border-radius: 10px;
-  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px 40px;
+}
+.error-input {
+  display: inline-block;
+  color: #a70000;
+  padding: 8px;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.8);
 }
 /* customize the checkbox */
 /* ----------------------------------------------------------------------------- */
@@ -174,8 +181,8 @@ input[type="text"]:focus {
 /* small screen */
 /* ----------------------------------------------------------------------------- */
 @media (max-width: 768px) {
-  #app {
-    background-image: url(assets/bg_bottom.svg);
+  .wrapper {
+    background-image: url(bg_bottom.svg);
     background-position: center bottom;
     background-repeat: no-repeat;
   }
