@@ -28,16 +28,20 @@ export default {
   methods: {
     submitForm() {
       this.v$.$validate();
-      // if (this.v$.$error) {
-      //   for (let key in Object.keys(this.v$)) {
-      //     const input = Object.keys(this.v$)[key];
-      //     if (input.includes("$")) return false;
-      //     if (this.state.v$[input].$error) {
-      //       this.state.$refs[input].focus();
-      //       break;
-      //     }
-      //   }
-      // }
+      // focus on error input
+      if (this.v$.$error) {
+        const errorArr = this.v$.$errors;
+        for (let i = errorArr.length - 1; i >= 0; i--) {
+          const el = errorArr[i].$property;
+          for (let x in this.$refs) {
+            if (x === el) {
+              this.$refs[x].focus();
+            }
+          }
+        }
+      }
+
+      // submit successfully
       if (!this.v$.$error) {
         this.state.spinner = true;
         setTimeout(() => {
@@ -47,7 +51,6 @@ export default {
       }
     },
     inputChange() {
-      console.log("kajsd fasdf");
       this.state.alwaysFail = "";
     },
   },
