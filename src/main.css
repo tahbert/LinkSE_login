@@ -25,7 +25,8 @@ body {
 body {
   font-family: "PT Sans", sans-serif;
   background: var(--darkestGrey);
-  background-image: url(bg_left.svg), url(bg_right.svg), url(bg_bottom.svg);
+  background-image: url(/public/bg_left.svg), url(/public/bg_right.svg),
+    url(/public/bg_bottom.svg);
   background-position: left center, right center, center bottom;
   background-repeat: no-repeat, no-repeat, no-repeat;
 }
@@ -181,8 +182,8 @@ input[type="password"]:focus {
 /* small screen */
 /* ----------------------------------------------------------------------------- */
 @media (max-width: 768px) {
-  .wrapper {
-    background-image: url(bg_bottom.svg);
+  body {
+    background-image: url(/public/bg_bottom.svg);
     background-position: center bottom;
     background-repeat: no-repeat;
   }
