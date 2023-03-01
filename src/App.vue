@@ -42,13 +42,13 @@ export default {
   <div id="app" v-cloak>
     <img
       class="secondary-logo"
-      src="digital_factory.svg"
+      src="/digital_factory.svg"
       alt="digital_factory"
     />
 
     <div class="login-box">
       <p class="welcome">WELCOME BACK TO</p>
-      <img class="primary-logo" src="logo.svg" alt="linkSE" />
+      <img class="primary-logo" src="/logo.svg" alt="linkSE" />
 
       <form class="login-form" @submit.prevent="submitForm">
         <label class="url" for="url">
