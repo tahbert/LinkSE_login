@@ -9,6 +9,7 @@ export default {
       username: "",
       password: "",
       alwaysFail: "",
+      spinner: false,
     });
     const rules = computed(() => {
       return {
@@ -38,10 +39,16 @@ export default {
       //   }
       // }
       if (!this.v$.$error) {
+        this.state.spinner = true;
         setTimeout(() => {
           this.state.alwaysFail = "Invalid User Credentials";
+          this.state.spinner = false;
         }, 2000);
       }
+    },
+    inputChange() {
+      console.log("kajsd fasdf");
+      this.state.alwaysFail = "";
     },
   },
 };
@@ -62,7 +69,14 @@ export default {
       <form class="login-form" @submit.prevent="submitForm">
         <label class="box-input url" for="url">
           Base URL
-          <input type="text" id="url" autofocus v-model="state.url" ref="url" />
+          <input
+            type="text"
+            id="url"
+            autofocus
+            v-model="state.url"
+            ref="url"
+            @change="inputChange()"
+          />
           <div class="error-input" v-if="v$.url.$error">
             {{ v$.url.$errors[0].$message }}
           </div>
@@ -75,6 +89,7 @@ export default {
             id="username"
             v-model="state.username"
             ref="username"
+            @change="inputChange()"
           />
           <div class="error-input" v-if="v$.username.$error">
             {{ v$.username.$errors[0].$message }}
@@ -87,6 +102,7 @@ export default {
             id="password"
             v-model="state.password"
             ref="password"
+            @change="inputChange()"
           />
           <div class="error-input" v-if="v$.password.$error">
             {{ v$.password.$errors[0].$message }}
@@ -104,7 +120,10 @@ export default {
           </label>
           <a href="#">Forgot Password?</a>
         </div>
-        <button class="btn-submit">Login</button>
+        <div class="form_submit">
+          <button class="btn-submit">Login</button>
+          <div class="spinner" v-if="state.spinner === true"></div>
+        </div>
       </form>
     </div>
   </div>
