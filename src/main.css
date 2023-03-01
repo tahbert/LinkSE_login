@@ -189,6 +189,9 @@ input[type="password"]:focus {
   }
 }
 @media (max-width: 480px) {
+  #app {
+    padding: 30px 0 20px;
+  }
   .login-box {
     width: 343px;
   }
