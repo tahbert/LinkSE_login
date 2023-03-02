@@ -75,8 +75,7 @@ a {
 }
 
 /* ----------------------------------------------------------------------------- */
-input[type="text"],
-input[type="password"] {
+input.success {
   margin: 10px 0;
   display: block;
   width: 100%;
@@ -87,12 +86,17 @@ input[type="password"] {
   background: transparent;
   border-radius: 6px;
 }
-input[type="text"]:focus,
-input[type="password"]:focus {
+input.success:focus {
   border: 1px solid var(--primaryColor);
   outline: 2px solid rgba(92, 207, 114, 0.3);
 }
-
+input.warning {
+  border: 1px solid #d93025;
+}
+input.warning:focus {
+  border: 1px solid #d93025;
+  outline: 2px solid #ef665b;
+}
 /* helpers, ui */
 /* ----------------------------------------------------------------------------- */
 .form_submit {
@@ -127,14 +131,14 @@ input[type="password"]:focus {
   position: absolute;
   bottom: -14px;
   right: 0;
-  color: #c31d16;
+  color: #d93025;
   text-align: end;
 }
 .error {
   position: absolute;
   top: -40px;
   width: 100%;
-  color: #c31d16;
+  color: #d93025;
   border-bottom: 1px solid #ef665b;
   padding: 4px;
 }
@@ -239,8 +243,8 @@ input[type="password"]:focus {
     margin: 30px auto 0;
     max-width: 343px;
   }
-  input[type="text"]:focus,
-  input[type="password"]:focus {
+  input.success:focus,
+  input.warning:focus {
     outline: none;
   }
 }

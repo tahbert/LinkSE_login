@@ -73,12 +73,14 @@ export default {
         <label class="box-input url" for="url">
           Base URL
           <input
+            class="success"
+            :class="{ warning: v$.url.$error }"
             type="text"
             id="url"
             autofocus
             v-model="state.url"
             ref="url"
-            @change="inputChange()"
+            @input="inputChange()"
           />
           <div class="error-input" v-if="v$.url.$error">
             {{ v$.url.$errors[0].$message }}
@@ -88,11 +90,13 @@ export default {
         <label class="box-input" for="username">
           Username
           <input
+            class="success"
+            :class="{ warning: v$.username.$error }"
             type="text"
             id="username"
             v-model="state.username"
             ref="username"
-            @change="inputChange()"
+            @input="inputChange()"
           />
           <div class="error-input" v-if="v$.username.$error">
             {{ v$.username.$errors[0].$message }}
@@ -101,11 +105,13 @@ export default {
         <label class="box-input" for="password">
           Password
           <input
+            class="success"
+            :class="{ warning: v$.password.$error }"
             type="password"
             id="password"
             v-model="state.password"
             ref="password"
-            @change="inputChange()"
+            @input="inputChange()"
           />
           <div class="error-input" v-if="v$.password.$error">
             {{ v$.password.$errors[0].$message }}
