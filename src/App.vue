@@ -60,16 +60,16 @@ export default {
 <template>
   <div id="app" v-cloak>
     <img
-      class="secondary-logo"
+      class="logo-secondary"
       src="/digital_factory.svg"
       alt="digital_factory"
     />
 
-    <div class="login-box">
+    <div class="box-login">
       <p class="welcome">WELCOME BACK TO</p>
-      <img class="primary-logo" src="/logo.svg" alt="linkSE" />
+      <img class="logo-primary" src="/logo.svg" alt="linkSE" />
 
-      <form class="login-form" @submit.prevent="submitForm">
+      <form class="form" @submit.prevent="submitForm">
         <label class="box-input url" for="url">
           Base URL
           <input
@@ -118,7 +118,7 @@ export default {
           </div>
         </label>
 
-        <div class="login-form_bottom">
+        <div class="form_footer">
           <div class="error" v-if="state.alwaysFail !== ''">
             {{ state.alwaysFail }}
           </div>
